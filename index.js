@@ -5,7 +5,7 @@ var port = 3000;
 var app = require('./app');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/zoo')
+mongoose.connect('mongodb://admin:Benjamin6ir0n1@ds263380.mlab.com:63380/curso-nodejs')
     .then(() => {
         console.log('La conexion a mongo a sido exitosa');
         app.listen(port, () => {
