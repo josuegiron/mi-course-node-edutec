@@ -17,14 +17,14 @@ function register(req, res){
     var user = new Usuario();
     var params = req.body;
 
-    if(params.nombre && params.apellido && params.email && params.password){
+    if(params.name && params.lastname && params.email && params.password){
         user.name = params.name;
         user.lastname = params.lastname;
         user.email = params.email;
         user.role = 'ROLE_USER'
         user.image = null;
-
-        User.findOnde({email: user.email.toLowerCase()}, (err, issetUser)=>{
+        console.log("hola");
+        user.findOne({email: user.email.toLowerCase()}, (err, issetUser)=>{
             if(err){
                 res.status(500).send({
                     message: "error en el server"
@@ -84,7 +84,7 @@ function login(req, res){
                         if(params.gettoken){
                             res.status(200).send(
                                 {
-                                    token: jwt.cretateToken(issetUser);
+                                    token: jwt.cretateToken(issetUser)
                                 }
                             )
                         }else{
